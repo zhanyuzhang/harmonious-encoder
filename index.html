@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>社会主义核心价值观编码器</title>
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: inherit;
+    }
+
+    html {
+     box-sizing: border-box;
+    }
+
+    .wrapper {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    textarea {
+      display: block;
+      height: 6em;
+      padding: 1em;
+      width: 100%;
+    }
+
+    .toolbar {
+      display: flex;
+      justify-content: center;
+      padding: 1em;
+    }
+
+    .btn {
+      width: 10em;
+      line-height: 2em;
+      color: #fff;
+      text-align: center;
+      margin: 0 1em;
+      background: #1890ff;
+      border-radius: 0.5em;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <textarea id="content" placeholder="请输入需要编码的内容"></textarea>
+    <div class="toolbar">
+      <div class="btn" id="encodeBtn">编码</div>
+      <div class="btn" id="decodeBtn">解码</div>
+    </div>
+  </div>
+  <script src="./index.js"></script>
+  <script>
+    const $ = document.getElementById.bind(document);
+    const $content = $('content');
+    const $encodeBtn = $('encodeBtn');
+    const $decodeBtn = $('decodeBtn');
+
+    $encodeBtn.onclick = function() {
+      $content.value =  encode($content.value);
+    }
+    $decodeBtn.onclick = function() {
+      $content.value= decode($content.value);
+    }
+  </script>
+</body>
+</html>
